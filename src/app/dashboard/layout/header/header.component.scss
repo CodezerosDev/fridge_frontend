@@ -1,0 +1,11 @@
+.walletAddress{
+    font-size: 14px;
+}
+.walletAddress .ellips{
+    display: block;
+    width: 59px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    box-shadow: 0 0 black;
+    margin-right: -5px;
+}

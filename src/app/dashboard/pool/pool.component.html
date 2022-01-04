@@ -1,0 +1,177 @@
+<section class="pt-md-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-12">
+        <div class="pb-5 text-center">
+          <div><img alt="" class="img-2" src="../../assets/images/fridge.png"><img alt="" class="img-2 ml-22"
+              src=".../../assets/images/BNB.png"></div>
+          <div class="f20-700 text-white pt-3">FRIDGE BNB Pool </div>
+          <div class="f16-display-200 text-white">Deposit FRIDGE-BNB FLP Earn <span
+              class="text-yellow font-weight-bold"> BNB </span> </div>
+          <div class="f16-display-200 text-white">Your <span class="text-yellow font-weight-bold">FRIDGE-BNB
+              FLP</span> Balance :<span class="text-yellow font-weight-bold"> {{showObj.balance ?
+              showObj.balance : '0'}}</span></div>
+        </div>
+      </div>
+      <div class="col-xl-3 col-lg-4 col-md-5 pr-md-0">
+        <div class="box2" style="border: solid;"><img alt="" class="img-2" src="../../assets/images/fridge.png">
+          <div class="f24-700 text-white pt-4">{{showObj.earned ? showObj.earned : 0}}</div>
+          <div class="f14-display-200 text-white pb-4"> <span class="text-yellow font-weight-bold"> BNB </span> Earned
+          </div>
+          <button type="button" class="fridge_yellowoutlinebtn mx-auto d-table"
+            [attr.disabled]="showObj.earned == 0 ? true:null" (click)="getReward()"><span> Harvest
+            </span></button>
+        </div>
+      </div>
+      <div class="col-md-1"></div>
+      <div class="col-xl-3 col-lg-4 col-md-5 pl-md-0">
+        <div class="box2" style="border: solid;">
+          <div><img alt="" class="img-2" src="../../assets/images/fridge.png"><img alt="" class="img-2 ml-22"
+              src=".../../assets/images/BNB.png"></div>
+          <div class="f24-700 pt-4 text-white">{{showObj.staked ? showObj.staked : 0}}</div>
+          <div class="f14-display-200 pb-4 text-white">FRIDGE-BNB FLP Tokens Staked</div>
+          <div class="d-flex justify-content-center">
+
+            <button type="button" class="fridge_yellowoutlinebtn mx-auto d-table"
+              [attr.disabled]="showObj.balance == '0' ? true:null" (click)="onClickApprove()"
+              *ngIf="showObj.approved == '0'"><span> Approve
+              </span></button>
+
+            <button type="button" class="fridge_yellowoutlinebtn mx-auto d-table" style="margin-right: 10px !important;"
+              [attr.disabled]="showObj.staked == '0' ? true:null" *ngIf="showObj.staked != '0'"
+              (click)="open(content1)"><span> UnStake </span></button>
+
+            <button type="button" class="fridge_yellowoutlinebtn mx-auto d-table"
+              [attr.disabled]="showObj.approved == '0' ? true:null" *ngIf="showObj.approved != '0'"
+              (click)="open(content)"><span> Stake
+              </span></button>
+          </div>
+        </div>
+      </div>
+
+
+
+      <!-- <div class="col-12 ">
+        <div class="row justify-content-center">
+          <div class="col-xl-7 col-lg-9 col-md-11">
+            <div class="f20-600 mb-3 text-center text-white">Fridge REWARD DETAILS</div>
+            <div class="row">
+              <div class="col-md-6 pb-3">
+                <div class="d-flex align-items-center">
+                  <div class="f16-600 pr-2 text-white">Total Stake:</div>
+                  <label class="px-3 py-1 text-dark f16-400 bg-white rounded mb-0 shadow">0000</label>
+                </div>
+              </div>
+              <div class="col-md-6 pb-3">
+                <div class="d-flex align-items-center justify-content-end">
+                  <div class="f16-600 pr-2 text-white">Network Share:</div>
+                  <label class="px-3 py-1 text-dark f16-400 bg-white rounded mb-0 shadow">0000%</label>
+                </div>
+              </div>
+            </div>
+            <div class="box2 p-3" style="border: solid;">
+              <div class="row text-white">
+                <div class="col-md-8">
+                  <div class="f20-600 mb-3">REWARD DISTRIBUTION RATE</div>
+
+                  <div class="row justify-content-center">
+                    <div class="col-8 ">
+                      <div class="f16-600 text-left">Per Hour:</div>
+                    </div>
+                    <div class="col-4 ">
+                      <div class="f16-400 text-left">0000
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="col-8 ">
+                      <div class="f16-600 text-left">Per Day:</div>
+                    </div>
+                    <div class="col-4 ">
+                      <div class="f16-400 text-left">0000</div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="col-8 ">
+                      <div class="f16-600 text-left">Per Week:</div>
+                    </div>
+                    <div class="col-4 ">
+                      <div class="f16-400 text-left">00000
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center">
+                    <div class="col-8 ">
+                      <div class="f16-600 text-left">Per Year:</div>
+                    </div>
+                    <div class="col-4 ">
+                      <div class="f16-400 text-left">00000
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 border-left">
+                  <div class="f20-600 mb-3">Your Earnings</div>
+                  <div class="f16-400 text-center">00000</div>
+                  <div class="f16-400 text-center">0000</div>
+                  <div class="f16-400 text-center">00000</div>
+                  <div class="f16-400 text-center">00000</div>
+
+                </div>
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+
+
+
+    </div>
+  </div>
+</section>
+
+<ng-template #content let-modal>
+  <div class="modal-body ">
+    <form name="stakeForm" [formGroup]="stakeForm" class="ng-untouched ng-pristine ng-invalid">
+      <div class="f18-600 text-center pb-4">Stake FRIDGE-BNB FLP Tokens</div>
+      <div class="f16-600 opacity5 text-right pb-2">{{showObj.approved ? showObj.approved : 0}} FRIDGE-BNB FLP Available
+      </div>
+      <div class="inputBox d-flex align-items-center justify-content-between">
+        <input type="number" placeholder="0" formControlName="amount" class="input ng-untouched ng-pristine ng-invalid"
+          (keyup)="checkStakeAmt($event)" [ngClass]="{ 'is-invalid': submitted1 && stakeForm.controls.amount.errors }">
+        <div class="d-flex align-items-center"><button type="button" (click)="onClickStakeMax()"
+            class="btn-outline-green min-width-90">MAX</button>
+        </div>
+      </div>
+      <div class="pt-4 d-flex justify-content-center align-items-center"><button type="button" data-dismiss="modal"
+          class="btn-outline-secondary mr-3" (click)="modal.dismiss('Cross click')">Cancel</button><button type="button"
+          class="fridge_yellowBtn" (click)="onClickStake()"><span>Confirm</span></button></div>
+    </form>
+  </div>
+</ng-template>
+
+
+<ng-template #content1 let-modal>
+  <div class="modal-body ">
+    <form name="unStakeForm" [formGroup]="unStakeForm" class="ng-untouched ng-pristine ng-invalid">
+      <div class="f18-600 text-center pb-4">UnStake FRIDGE-BNB FLP Tokens</div>
+      <div class="f16-600 opacity5 text-right pb-2">{{showObj.staked ? showObj.staked :0}} FRIDGE-BNB FLP Available
+      </div>
+      <div class="inputBox d-flex align-items-center justify-content-between">
+        <input type="number" placeholder="0" formControlName="amount" class="input ng-untouched ng-pristine ng-invalid"
+          [attr.disabled]="showObj.staked == 0 ? true :null" (keyup)="checkUnStakeAmt($event)"
+          [ngClass]="{ 'is-invalid': submitted2 && unStakeForm.controls.amount.errors }">
+        <div class="d-flex align-items-center"><button type="button" class="btn-outline-green min-width-90"
+            (click)="onClickUnStakeMax()">MAX</button>
+        </div>
+      </div>
+      <div class="pt-4 d-flex justify-content-center align-items-center"><button type="button" data-dismiss="modal"
+          class="btn-outline-secondary mr-3" (click)="modal.dismiss('Cross click')">Cancel</button><button type="button"
+          class="fridge_yellowBtn" (click)="onClickUnStack()"><span>Confirm</span></button></div>
+    </form>
+  </div>
+</ng-template>

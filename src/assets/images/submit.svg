@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="160" height="67" viewBox="0 0 160 67">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_631" data-name="Rectangle 631" width="10" height="10" transform="translate(-5811 -8666)" fill="#fec901" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_634" data-name="Rectangle 634" width="10" height="10" fill="#fec901" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1595" data-name="Group 1595" transform="translate(-1200 -836)">
+    <g id="Mask_Group_29" data-name="Mask Group 29" transform="translate(10016 -4908) rotate(-90)" clip-path="url(#clip-path)">
+      <path id="Exclusion_23" data-name="Exclusion 23" d="M92.593,20H82.6a10.012,10.012,0,0,0,9.995-10h-10V20H10A10,10,0,0,1,10,0H82.593a10.011,10.011,0,0,1,10,10V20Z" transform="translate(-5893.593 -8676)" fill="#fec901"/>
+    </g>
+    <g id="Mask_Group_30" data-name="Mask Group 30" transform="translate(1350 846) rotate(-90)" clip-path="url(#clip-path-2)">
+      <path id="Exclusion_24" data-name="Exclusion 24" d="M82.593,20H10A10,10,0,0,1,10,0H82.593V10h10A10.01,10.01,0,0,1,82.593,20Zm10-10.142A10.038,10.038,0,0,0,82.593,0h10V9.858Z" transform="translate(92.593 10) rotate(180)" fill="#fec901"/>
+    </g>
+    <path id="Rectangle_635" data-name="Rectangle 635" d="M10,0H160a0,0,0,0,1,0,0V47a0,0,0,0,1,0,0H10A10,10,0,0,1,0,37V10A10,10,0,0,1,10,0Z" transform="translate(1200 846)" fill="#fec901"/>
+    <text id="Submit" transform="translate(1280 876)" font-size="18" font-family="Inter-ExtraBold, Inter" font-weight="800"><tspan x="-31.884" y="0">Submit</tspan></text>
+  </g>
+</svg>

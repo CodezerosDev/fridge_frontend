@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid d-flex justify-content-between">
+    <a class="navbar-brand" routerLink="/"><img src="./../../../../assets/images/logo.svg" alt="logo"
+        class="img-fluid logo" /></a>
+    <div class="collapse navbar-collapse justify-content-center" [ngbCollapse]="isNavbarCollapsed"
+      id="basic-navbar-nav">
+      <div class="navbar-nav">
+        <a class="nav-link" routerLink="/dashboard/index" routerLinkActive="active">Dashboard</a>
+        <a class="nav-link" routerLink="/dashboard/buy" routerLinkActive="active">Buy</a>
+        <a class="nav-link" routerLink="/dashboard/pool" routerLinkActive="active">Pool</a>
+        <a class="nav-link" routerLink="/dashboard/create" routerLinkActive="active">Create</a>
+        <a class="nav-link" routerLink="/dashboard/vote" routerLinkActive="active">Vote</a>
+      </div>
+    </div>
+    <div>
+      <div *ngIf="isLogin == false">
+        <button type="button" class="fridge_yellowoutlinebtn" (click)="connectToMetaMask()">Connect</button>
+      </div>
+
+
+      <h3 class=" mb-0 text-white mr-2 " style="padding-right: 15px;font-size: 21px;" *ngIf="isLogin == true">
+        <div>{{showObj.networkName ? showObj.networkName :'-'}}</div>
+        <div class="walletAddress d-flex align-items-center justify-content-center">
+          <span class="ellips">{{showObj.userAccount ? showObj.userAccount :'-'}}</span>
+          <span>{{showObj.userAccount ? (showObj.userAccount| slice:-4) :'-'}}</span>
+        </div>
+      </h3>
+
+      <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isNavbar()"
+        aria-controls="basic-navbar-nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,126 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-xl-8 pt-md-5">
+      <div
+        class="box4 fridge_{{showObj._start_date | numberDate : showObj._end_date : showObj._hardCap : showObj._softCap: conditionObj.failed: showObj.collected :'inside'}}">
+        <div class="row align-items-center flex-wrap justify-content-between px-3 pt-3">
+          <div class="col-lg-6 d-flex align-items-center ">
+            <img class="token"
+              src="{{showObj && showObj._tokenLogo ? showObj._tokenLogo : './../../../assets/images/token.svg'}}"
+              alt="" />
+            <div class="pl-3">
+              <div class="f20-500 text-white">{{showObj && showObj._tokenName ? showObj._tokenName : '-'}}</div>
+              <div class="f14-display-200 text-white op-6">{{showObj && showObj._projectInfo ? showObj._projectInfo :
+                '-'}}</div>
+            </div>
+          </div>
+          <div class="col-lg-6 fridge_social2 d-flex flex-wrap align-items-center justify-content-end">
+            <a href="{{showObj && showObj._website ? showObj._website : '-'}}" target="_blank">
+              <img src="./../../../assets/images/website.svg" alt="" />
+            </a>
+            <a href="{{showObj && showObj._telegramLink ? showObj._telegramLink : '-'}}" target="_blank">
+              <img src="./../../../assets/images/telegram.svg" alt="" />
+            </a>
+            <a href="{{showObj && showObj._twitterLink ? showObj._twitterLink : '-'}}" target="_blank">
+              <img src="./../../../assets/images/twitter.svg" alt="" />
+            </a>
+            <a href="{{showObj && showObj._discordLink ? showObj._discordLink : '-'}}" target="_blank">
+              <img src="./../../../assets/images/discord.svg" alt="" />
+            </a>
+          </div>
+
+        </div>
+        <div class="fridge_status">
+          {{showObj._start_date | numberDate : showObj._end_date : showObj._hardCap : showObj._softCap:
+          conditionObj.failed : showObj.collected :'inside'}}
+        </div>
+        <div class="row justify-content-center py-4">
+          <div class="col-md-4 col-6 text-center">
+            <div class="f24-500 text-white pb-1">{{showObj.collected ? showObj.collected :'0'}}</div>
+            <div class="f14-display-200 text-white op-6 pb-4">Collected BNB</div>
+          </div>
+          <div class="col-md-4 col-6 text-center">
+            <div class="f24-500 text-white pb-1">{{showObj && showObj._max_allowed ? (showObj._max_allowed | divide18) :
+              '0'}}</div>
+            <div class="f14-display-200 text-white op-6 pb-4">Max BNB Allowed</div>
+          </div>
+          <div class="col-md-4 col-6 text-center">
+            <div class="f24-500 text-white pb-1">{{showObj && showObj._min_allowed ? (showObj._min_allowed | divide18) :
+              '0'}}</div>
+            <div class="f14-display-200 text-white op-6 pb-4">Min BNB Allowed</div>
+          </div>
+          <div class="col-md-4 col-6 text-center">
+            <div class="f24-500 text-white pb-1">{{showObj && showObj._hardCap ? (showObj._hardCap | divide18) : '0'}}
+            </div>
+            <div class="f14-display-200 text-white op-6 pb-4">HardCap</div>
+          </div>
+          <div class="col-md-4 col-6 text-center">
+            <div class="f24-500 text-white pb-1">{{showObj && showObj._softCap ? (showObj._softCap | divide18) : '0'}}
+            </div>
+            <div class="f14-display-200 text-white op-6 pb-4">SoftCap</div>
+          </div>
+        </div>
+        <form name="buyForm" [formGroup]="buyForm" class="fridge_buyform px-3">
+          <div class="form-group">
+            <label class="f14-display-200 text-white op-6">From</label>
+            <div class="fridge-form-grup">
+              <input type="number" (keyup)="onAmount1KeyUp($event)" formControlName="amount1">
+              <div ngbDropdown class="d-inline-block" placement="bottom-right">
+
+
+                <button type="button" disabled class="btn btn-outline-yellow" id="dropdownBasic1" ngbDropdownToggle><img
+                    src="{{setDropdownObj1 && setDropdownObj1._tokenLogo ? setDropdownObj1._tokenLogo : './../../../assets/images/BNB.png'}}"
+                    alt="" width="28px" /><span>{{setDropdownObj1 && setDropdownObj1._tokenName ?
+                    setDropdownObj1._tokenName : '-'}}</span></button>
+
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="f14-display-200 text-white op-6">To</label>
+            <div class="fridge-form-grup">
+              <input type="number" formControlName="amount2" >
+              <div ngbDropdown class="d-inline-block" placement="bottom-right">
+                <button type="button" class="btn btn-outline-yellow" id="dropdownBasic1" ngbDropdownToggle><img
+                    src="{{setDropdownObj2 && setDropdownObj2._tokenLogo ? setDropdownObj2._tokenLogo : './../../../assets/images/BNB.png'}}"
+                    alt="" width="28px" /><span>{{setDropdownObj2 && setDropdownObj2._tokenName ?
+                    setDropdownObj2._tokenName : '-'}}</span></button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="select-currency">
+                  <button type="button" *ngFor="let obj of showData;" (click)="onCliclDropDown(obj)"
+                    ngbDropdownItem><img
+                      src="{{obj && obj._tokenLogo ? obj._tokenLogo : './../../../assets/images/ETH.svg'}}" alt=""
+                      width="28px" /><span>{{obj && obj._tokenName ? obj._tokenName : '-'}}</span></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <div class="d-flex">
+          <!-- && !conditionObj.end_date && *ngIf="conditionObj.isLive" -->
+          <button type="submit" *ngIf="!conditionObj.end_date && conditionObj.isLive"
+            class="fridge_yellowBtn2 m-auto d-table" (click)="onClickBuy()">Buy Now</button>
+
+          <!-- <button type="submit" class="fridge_yellowBtn2 m-auto d-table" (click)="onClickWithdrawTokens()"
+            *ngIf="conditionObj.locked == '1' && conditionObj.participant  != '0' ">WithdrawTokens</button> -->
+
+          <!-- <button type="submit" class="fridge_yellowBtn2 m-auto d-table" (click)="onClickLockLiquidity()"
+            *ngIf="conditionObj.locked != '1' && (showObj.collected >= conditionObj.hardCap || (conditionObj.end_date && showObj.collected >= conditionObj.softCap) ) && (conditionObj.owner == showObjData.userAccount || conditionObj.factory_owner == showObjData.userAccount) && conditionObj.currentTime < conditionObj.end_datePlus2Hours">LockLiquidity</button> -->
+   
+
+           <button type="submit" class="fridge_yellowBtn2 m-auto d-table" (click)="onClickWithdrawRemainAssets()"
+            *ngIf="(conditionObj.failed || conditionObj.doRefund || conditionObj.locked == '1') && conditionObj.owner == showObjData.userAccount  && conditionObj.currentTime < conditionObj.end_datePlus2Hours">withDrawRemainingAssets</button>
+
+ 
+          <button type="submit" class="fridge_yellowBtn2 m-auto d-table" (click)="onClickWithDrawFund()"
+            *ngIf="((conditionObj.failed || conditionObj.doRefund )|| ( conditionObj.locked == '0' && conditionObj.currentTime >= conditionObj.end_datePlus2Hours )) && (conditionObj.participant != 0 )">WithDrawFund
+          </button>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,150 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="box3 d-flex align-items-center">
+        <img src="./../../../assets/images/icon1.svg" alt="" />
+        <div class="pl-3">
+          <div class="f32-500 text-white">
+            {{showData && showData.length ? (showData.length+2): 0}}
+          </div>
+          <div class="f16-display-200 text-yellow">
+            Total Campaigns
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="box3 d-flex align-items-center">
+        <img src="./../../../assets/images/icon1.svg" alt="" />
+        <div class="pl-3">
+          <div class="f32-500 text-white">
+            1.53<span class="f16-400"> bWAPS/per BNB </span>
+          </div>
+          <div class="f16-display-200 text-yellow">
+            Pancakeswap rate
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="box3 d-flex align-items-center">
+        <img src="./../../../assets/images/icon1.svg" alt="" />
+        <div class="pl-3">
+          <div class="f32-500 text-white">
+            2 <span class="f16-400"> bWAPS/per BNB </span>
+          </div>
+          <div class="f16-display-200 text-yellow">
+            Presale rate
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="box3 d-flex align-items-center">
+        <img src="./../../../assets/images/icon1.svg" alt="" />
+        <div class="pl-3">
+          <div class="f32-500 text-white">
+            2000<span class="f16-400"> FRIDGE</span>
+          </div>
+          <div class="f16-display-200 text-yellow">
+             minimum required for early access
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9">
+      <div class="row">
+
+        <div class="col-lg-4 col-md-6 mb-4" *ngFor="let obj of newArray;" >
+          <div class="box4 d-flex flex-column justify-content-between fridge_{{obj._start_date | numberDate : obj._end_date: obj._hardCap : obj._softCap: obj.failed: obj.collected :'outside'}}">
+            <div class="d-flex align-items-top px-3 pt-3">
+              <img src="{{obj && obj._tokenLogo ? obj._tokenLogo : './../../../assets/images/token.svg'}} " alt="" class="token" />
+              <div class="pl-3">
+                <div class="f20-500 text-white">{{obj && obj._tokenName ? obj._tokenName : '-'}}</div>
+                <div class="f14-display-200 text-white text-break op-6">{{obj && obj._projectInfo ? obj._projectInfo : '-'}}</div>
+              </div>
+            </div>
+            <div>
+              <div class="fridge_status">
+                {{obj._start_date | numberDate : obj._end_date : obj._hardCap : obj._softCap: obj.failed: obj.collected:'outside' }}
+              </div>
+              <div class="f14-display-200 text-white op-6 px-3">Token Amount</div>
+              <div class="f24-500 text-white px-3 pb-3">{{obj && obj._tokenAmount ? (obj._tokenAmount | divide18 )  : '0'}}</div>
+              <div class="f14-display-200 text-white op-6 px-3">Start Block</div>
+              <!-- <div class="f24-500 text-white px-3 pb-3">{{obj._start_date  ? ((obj._start_date * 1000) | date: 'dd/MM/yyyy hh:mm:ss') : '0'}} GMT</div> -->
+
+              <div class="f20-500 text-white px-3 pb-3"> {{obj._start_date | timerConvert : obj._end_date}}</div>
+
+              <a routerLink="/dashboard/buy" class="fridge_yellowBtn2 m-auto d-table" (click)="onClickRoute(obj._token_address)">Participate</a>
+            </div>
+          </div>
+        </div>
+        
+
+ 
+        <!-- <div class="col-lg-4 col-md-6 mb-4">
+          <div class="box4 d-flex flex-column justify-content-between fridge_ended">
+            <div class="d-flex align-items-top px-3 pt-3">
+              <img src="https://res.cloudinary.com/prakash-harvani/image/upload/v1615280921/DAI.jpg" alt="" class="token" />
+              <div class="pl-3">
+                <div class="f20-500 text-white">Token Name</div>
+                <div class="f14-display-200 text-white op-6">Pellentesque placerat legfsaf
+                  fadhsjfhjhfasdjhfjhasjhf dfasjkjkasjfdkjk kjkajfkjaksjfdkjf jkjkkj ctusSGFSDFGDSG   HGFDGFH SHDFHG DFH FDHfdhgdgfhdf
+                  venenatis mollis convallis.</div>
+              </div>
+            </div>
+            <div>
+              <div class="fridge_status">
+                Ended
+              </div>
+              <div class="f14-display-200 text-white op-6 px-3">Token Amount</div>
+              <div class="f24-500 text-white px-3 pb-3">320,000.00</div>
+              <div class="f14-display-200 text-white op-6 px-3">Start Block</div>
+              <div class="f24-500 text-white px-3 pb-3">2020 10.23 07:00 UTC</div>
+              <a routerLink="/dashboard/buy" class="fridge_yellowBtn2 m-auto d-table">Participate</a>
+            </div>
+          </div>
+        </div>  -->
+
+        <!-- <div class="col-lg-4 col-md-6 mb-4">
+          <div class="box4 d-flex flex-column justify-content-between fridge_upcoming">
+            <div class="d-flex align-items-center px-3 pt-3">
+              <img src="./../../../assets/images/token.svg" alt="" class="token" />
+              <div class="pl-3">
+                <div class="f20-500 text-white">Token Name</div>
+                <div class="f14-display-200 text-white op-6">Pellentesque placerat lectus
+                  venenatis mollis convallis.</div>
+              </div>
+            </div>
+            <div>
+              <div class="fridge_status">
+                Upcoming
+              </div>
+              <div class="f14-display-200 text-white op-6 px-3">Token Amount</div>
+              <div class="f24-500 text-white px-3 pb-3">320,000.00</div>
+              <div class="f14-display-200 text-white op-6 px-3">Start Block</div>
+              <div class="f24-500 px-3 pb-3 text-blue">15 H : 24 M : 15 S</div>
+              <a routerLink="/dashboard/buy" class="fridge_yellowBtn2 m-auto d-table">Early Buds</a>
+            </div>
+          </div>
+        </div> -->
+
+      </div>
+    </div>
+    <div class="col-lg-3">
+      <div class="box6">
+        <img src="./../../../assets/images/fridge.png" alt="" class="mb-4" />
+        <div class="p-4 text-center">
+          <div class="f24-700 pb-4">Create your Safe PreSale.</div>
+          <p class="op-6 pb-4 m-0">You provide the info, our smart contracts do the work and guarantee the locking of liquidity! 
+            .</p>
+          <a href="javascript:;" routerLink="/dashboard/create" class="fridgeBlackBtn">Create Now</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,493 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-lg-10 col-xl-8 pt-md-5">
+      <div>
+        <div class="d-flex align-items-center justify-content-around fridge_step_header">
+          <!-- <button type="button" style="cursor: default;" [ngClass]="{'active': activeStep === 1}" ><span>1</span>Step </button>
+          <button type="button" style="cursor: default;" [ngClass]="{'active': activeStep === 2}" ><span>2</span>Step</button>
+          <button type="button"  style="cursor: default;" [ngClass]="{'active': activeStep === 3}" ><span>3</span>Step</button> -->
+
+          <button type="button" (click)="handleStep(1)" [ngClass]="{'active': activeStep === 1}"><span>1</span>Step
+          </button>
+          <button type="button" (click)="handleStep(2)"
+            [ngClass]="{'active': activeStep === 2}"><span>2</span>Step</button>
+          <button type="button" (click)="handleStep(3)"
+            [ngClass]="{'active': activeStep === 3}"><span>3</span>Step</button>
+
+          <!-- (click)="handleStep(3)" -->
+        </div>
+        <div class="box4 hover-none py-4">
+
+          <!--  FORM  1  -->
+          <form name="createForm1" [formGroup]="createForm1" *ngIf="activeStep === 1">
+            <div class="px-4">
+              <div class="row">
+                <!-- tokenAddress -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Token Address</label>
+                    <input type="text" class="form-control"
+                      [ngClass]="{ 'is-invalid': submitted1 && createForm1.controls._token_address.errors }"
+                      formControlName="_token_address" />
+
+                    <div class="fridge-err" *ngIf="submitted1 && createForm1.controls._token_address.errors">
+                      <span *ngIf="createForm1.controls._token_address.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm1.controls._token_address.errors?.pattern"> Please enter valid
+                        address.</span>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- SoftCap -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">SoftCap</label>
+                    <input type="number" (keyup)="setValidatorForHardCap($event)"
+                      [ngClass]="{ 'is-invalid': submitted1 && createForm1.controls._softCap.errors }"
+                      formControlName="_softCap" class="form-control" />
+
+                    <div class="fridge-err" *ngIf="submitted1 && createForm1.controls._softCap.errors">
+                      <span *ngIf="createForm1.controls._softCap.errors?.required">This field is required.</span>
+                      <span
+                        *ngIf="createForm1.controls._softCap.errors?.min && !createForm1.controls._softCap.errors?.required">
+                        Please enter valid soft cap.</span>
+                      <span
+                        *ngIf="createForm1.controls._softCap.errors?.max && !createForm1.controls._softCap.errors?.required">
+                        Please enter valid soft cap.</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- HardCap -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">HardCap</label>
+                    <input type="number"
+                      [ngClass]="{ 'is-invalid': submitted1 && createForm1.controls._hardCap.errors }"
+                      formControlName="_hardCap" class="form-control" />
+
+
+                    <div class="fridge-err" *ngIf="submitted1 && createForm1.controls._hardCap.errors">
+                      <span *ngIf="createForm1.controls._hardCap.errors?.required">This field is required.</span>
+                      <span
+                        *ngIf="createForm1.controls._hardCap.errors?.min && !createForm1.controls._hardCap.errors?.required">
+                        Please enter valid hard cap.</span>
+                      <span
+                        *ngIf="createForm1.controls._hardCap.errors?.max && !createForm1.controls._hardCap.errors?.required">
+                        Please enter valid hard cap.</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Min BNB Per wallet -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Min BNB per Wallet</label>
+                    <input type="number"
+                      [ngClass]="{ 'is-invalid': submitted1 && createForm1.controls._min_allowed.errors }"
+                      formControlName="_min_allowed" class="form-control" />
+
+                    <div class="fridge-err" *ngIf="submitted1 && createForm1.controls._min_allowed.errors">
+                      <span *ngIf="createForm1.controls._min_allowed.errors?.required">This field is required.</span>
+                      <span
+                        *ngIf="createForm1.controls._min_allowed.errors?.min && !createForm1.controls._min_allowed.errors?.required">
+                        Please enter valid Min BNB(per wallet).</span>
+                      <span
+                        *ngIf="createForm1.controls._min_allowed.errors?.max && !createForm1.controls._min_allowed.errors?.required">
+                        Please enter valid Min BNB(per wallet).</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- MAx BNB Per wallet -->
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Max BNB per Wallet</label>
+                    <input type="number"
+                      [ngClass]="{ 'is-invalid': submitted1 && createForm1.controls._max_allowed.errors }"
+                      formControlName="_max_allowed" class="form-control" />
+
+                    <div class="fridge-err" *ngIf="submitted1 && createForm1.controls._max_allowed.errors">
+                      <span *ngIf="createForm1.controls._max_allowed.errors?.required">This field is required.</span>
+                      <span
+                        *ngIf="createForm1.controls._max_allowed.errors?.min && !createForm1.controls._max_allowed.errors?.required">
+                        Please enter valid Max BNB(per wallet).</span>
+                      <span
+                        *ngIf="createForm1.controls._max_allowed.errors?.max && !createForm1.controls._max_allowed.errors?.required">
+                        Please enter valid Max BNB(per wallet).</span>
+                    </div>
+
+                  </div>
+                </div>
+
+
+
+                <!--Token Amount -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Token Amount ( No. of tokens for presale )</label>
+                    <input type="number"
+                      [ngClass]="{ 'is-invalid': submitted1 && createForm1.controls._tokenAmount.errors }"
+                      formControlName="_tokenAmount" class="form-control" />
+
+
+                    <div class="fridge-err" *ngIf="submitted1 && createForm1.controls._tokenAmount.errors">
+                      <span *ngIf="createForm1.controls._tokenAmount.errors?.required">This field is required.</span>
+                      <span
+                        *ngIf="createForm1.controls._tokenAmount.errors?.min && !createForm1.controls._tokenAmount.errors?.required">
+                        Please enter valid token amount.</span>
+                      <span
+                        *ngIf="createForm1.controls._tokenAmount.errors?.max && !createForm1.controls._tokenAmount.errors?.required">
+                        Please enter valid token amount.</span>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-end py-3">
+              <button type="button" class="fridge_next" (click)="onClickSubmit1()">
+                <!-- (click)="handleStep(2)" -->
+                Next
+              </button>
+            </div>
+          </form>
+
+
+          <!--  FORM  2  -->
+          <form name="createForm2" [formGroup]="createForm2" *ngIf="activeStep ===2">
+            <div class="px-4">
+              <div class="row">
+                <!--  pan cake rate -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Percentage for Locking Liquidity to
+                      Pancakeswap(%)</label>
+                    <div class="p_rltv">
+                      <input type="number" (keyup)="onkeyUpPancake($event)"
+                        [ngClass]="{ 'is-invalid': submitted2 && createForm2.controls._pancake_rate.errors }"
+                        formControlName="_pancake_rate" class="form-control"  />
+                      <button class="btnactn btnmns" (click)="onClickMinus()">-</button>
+                      <button class="btnactn btnpls" (click)="onClickPlus()">+</button>
+                    </div>
+
+
+
+                    <div class="fridge-err" *ngIf="submitted2 && createForm2.controls._pancake_rate.errors">
+                      <span *ngIf="createForm2.controls._pancake_rate.errors?.required">This field is required.</span>
+                      <span
+                        *ngIf="createForm2.controls._pancake_rate.errors?.min && !createForm2.controls._pancake_rate.errors?.required">
+                        Please enter Value between 1 to 98.</span>
+                      <span
+                        *ngIf="createForm2.controls._pancake_rate.errors?.max && !createForm2.controls._pancake_rate.errors?.required">
+                        Please enter Value between 1 to 98.</span>
+                    </div>
+
+
+                  </div>
+                </div>
+                <!-- token per BNB -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Token per BNB ( Pancakeswap )</label>
+                    <input type="number"
+                      [ngClass]="{ 'is-invalid': submitted2 && createForm2.controls._tokenPerBNB.errors }"
+                      formControlName="_tokenPerBNB" class="form-control" />
+
+
+                    <div class="fridge-err" *ngIf="submitted2 && createForm2.controls._tokenPerBNB.errors">
+                      <span *ngIf="createForm2.controls._tokenPerBNB.errors?.required">This field is required.</span>
+                      <span
+                        *ngIf="createForm2.controls._tokenPerBNB.errors?.min && !createForm2.controls._tokenPerBNB.errors?.required">
+                        Please enter valid token per BNB( pancakeswap ).</span>
+                      <span
+                        *ngIf="createForm2.controls._tokenPerBNB.errors?.max && !createForm2.controls._tokenPerBNB.errors?.required">
+                        Please enter valid token per BNB( pancakeswap ).</span>
+                    </div>
+
+                  </div>
+                </div>
+
+                <!-- Lock Duration -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Liquidity Lock Duration (Seconds)</label>
+                    <div class="p_rltv">
+                      <input type="number"
+                        [ngClass]="{ 'is-invalid': submitted2 && createForm2.controls._lock_duration.errors }"
+                        formControlName="_lock_duration" class="form-control" />
+                      <!-- <button class="btnactn btnmns">-</button>
+                      <button class="btnactn btnpls">+</button> -->
+                    </div>
+
+
+                    <div class="fridge-err" *ngIf="submitted2 && createForm2.controls._lock_duration.errors">
+                      <span *ngIf="createForm2.controls._lock_duration.errors?.required">This field is required.</span>
+                    </div>
+
+
+                  </div>
+                </div>
+
+                <!-- date -->
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Start Date and Time - End Date and Time </label>
+                    <input type="text" [ngClass]="{ 'is-invalid': submitted2 && createForm2.controls._date.errors }"
+                      formControlName="_date" [min]="min" [owlDateTime]="dt10" [selectMode]="'range'"
+                      [owlDateTimeTrigger]="dt10" class="form-control" />
+                    <owl-date-time #dt10></owl-date-time>
+
+                    <div class="fridge-err" *ngIf="submitted2 && createForm2.controls._date.errors">
+                      <span *ngIf="createForm2.controls._date.errors?.required">This field is required.</span>
+                    </div>
+
+
+                  </div>
+                </div>
+                <div class="col-md-12 btm_d">
+                  <div class="row justify-content-center rspmrgn">
+                    <div class="col-sm-5 text-right">
+                      <label class="f14-display-200 text-white op-6">
+                        <img src="./../../assets/images/qstn_ic.jpg" class="qstn_img" alt="" />
+                        Total token for Presale
+                      </label>
+                    </div>
+                    <div class="col-sm-1 text-center"><label class="f14-display-200 text-white op-6">-</label></div>
+                    <div class="col-sm-5">
+                      <h6 class="f16-display-200 text-white">{{createForm1.value._tokenAmount ?
+                        createForm1.value._tokenAmount : 0}}</h6>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center rspmrgn">
+                    <div class="col-sm-5 text-right">
+                      <label class="f14-display-200 text-white op-6">
+                        <img src="./../../assets/images/qstn_ic.jpg" class="qstn_img" alt="" />
+                        Token to be locked on pancake (%)
+                      </label>
+                    </div>
+                    <div class="col-sm-1 text-center"><label class="f14-display-200 text-white op-6">-</label></div>
+                    <div class="col-sm-5">
+                      <h6 class="f16-display-200 text-white">{{showTokentobeLocked ?
+                        showTokentobeLocked : 0}}</h6>
+                    </div>
+                  </div>
+                  <div class="row justify-content-center rspmrgn">
+                    <div class="col-sm-5 text-right">
+                      <label class="f14-display-200 text-white op-6">
+                        <img src="./../../assets/images/qstn_ic.jpg" class="qstn_img" alt="" />
+                        PlateForm fees
+                      </label>
+                    </div>
+                    <div class="col-sm-1 text-center"><label class="f14-display-200 text-white op-6">-</label></div>
+                    <div class="col-sm-5">
+                      <h6 class="f16-display-200 text-white">1%</h6>
+                    </div>
+                  </div>
+
+                </div>
+
+
+                <!-- <div class="col-md-6 text-center">
+                  <label class="f14-display-200 text-white op-6">Total token for Presale - </label>
+                </div>
+                <div class="col-md-6 text-center">
+                  <label class="f14-display-200 text-white op-6">0 FRIDGE</label>
+                </div>
+
+                <div class="col-md-6 text-center">
+                  <label class="f14-display-200 text-white op-6">PlateForm fees - </label>
+                </div>
+                <div class="col-md-6 text-center">
+                  <label class="f14-display-200 text-white op-6">$ 15</label>
+                </div>
+
+                <div class="col-md-6 text-center">
+                  <label class="f14-display-200 text-white op-6">Token to be locked on pancake - </label>
+                </div>
+                <div class="col-md-6 text-center">
+                  <label class="f14-display-200 text-white op-6">0 %</label>
+                </div> -->
+
+                <!-- <div class="col-md-6 text-center">
+                 
+                  <label class="f14-display-200 text-white op-6">0 % </label>
+                </div> -->
+
+              </div>
+            </div>
+            <div class="d-flex align-items-center justify-content-between py-3">
+              <button type="button" class="fridge_prev" (click)="handleStep(1)">
+                Back
+              </button>
+              <button type="button" class="fridge_next" (click)="onClickSubmit2()">
+                Next
+              </button>
+            </div>
+          </form>
+
+          <!--  FORM  3  -->
+          <form name="createForm3" [formGroup]="createForm3" *ngIf="activeStep ===3">
+            <div class="px-4">
+              <div class="row">
+                <!-- Project Name -->
+
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Project Name</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._projectName.errors }"
+                      formControlName="_projectName" type="text" class="form-control" />
+
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._projectName.errors">
+                      <span *ngIf="createForm3.controls._projectName.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm3.controls._projectName.errors?.maxlength">
+                        Please enter valid project name.</span>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Token Name -->
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Token Name</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._tokenName.errors }"
+                      formControlName="_tokenName" type="text" class="form-control" />
+
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._tokenName.errors">
+                      <span *ngIf="createForm3.controls._tokenName.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm3.controls._tokenName.errors?.maxlength">
+                        Please enter valid token name.</span>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Website -->
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Website</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._website.errors }"
+                      formControlName="_website" type="text" class="form-control" />
+
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._website.errors">
+                      <span *ngIf="createForm3.controls._website.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm3.controls._website.errors?.pattern">
+                        Please enter valid Website.</span>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Token Icon / Logo -->
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Token Icon / Logo</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._tokenLogo.errors }"
+                      (change)="onSelectDocument($event)" formControlName="_tokenLogo" type="file"
+                      class="form-control" />
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._tokenLogo.errors">
+                      <span *ngIf="createForm3.controls._tokenLogo.errors?.required">This field is required.</span>
+                    </div>
+                   
+                  </div>
+                </div>
+
+                <!-- Telegram Link -->
+
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Telegram Link</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._telegramLink.errors }"
+                      formControlName="_telegramLink" type="text" class="form-control" />
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._telegramLink.errors">
+                      <span *ngIf="createForm3.controls._telegramLink.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm3.controls._telegramLink.errors?.pattern">
+                        Please enter valid telegram Link.</span>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Twitter Link -->
+
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Twitter Link</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._twitterLink.errors }"
+                      formControlName="_twitterLink" type="text" class="form-control" />
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._twitterLink.errors">
+                      <span *ngIf="createForm3.controls._twitterLink.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm3.controls._twitterLink.errors?.pattern">
+                        Please enter valid twitter Link.</span>
+                    </div>
+
+                  </div>
+                </div>
+                <!-- Discord Link -->
+
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Discord Link</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._discordLink.errors }"
+                      formControlName="_discordLink" type="text" class="form-control" />
+
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._discordLink.errors">
+                      <span *ngIf="createForm3.controls._discordLink.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm3.controls._discordLink.errors?.pattern">
+                        Please enter valid discord Link.</span>
+                    </div>
+
+
+                  </div>
+                </div>
+                <!-- introduction project -->
+
+                <div class="col-md-12">
+                  <div class="form-group">
+                    <label class="f14-display-200 text-white op-6">Please brief introduction of project</label>
+                    <input [ngClass]="{ 'is-invalid': submitted3 && createForm3.controls._projectInfo.errors }"
+                      formControlName="_projectInfo" type="text" class="form-control" />
+                    <div class="fridge-err" *ngIf="submitted3 && createForm3.controls._projectInfo.errors">
+                      <span *ngIf="createForm3.controls._projectInfo.errors?.required">This field is required.</span>
+                      <span *ngIf="createForm3.controls._projectInfo.errors?.maxlength">
+                        Please enter valid project info.</span>
+                    </div>
+
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+            <div class="d-flex align-items-center justify-content-between py-3">
+              <button type="button" class="fridge_prev" (click)="handleStep(2)">
+                Back
+              </button>
+              <button type="button" class="fridge_next" (click)="onClickSubmit3()">
+                Submit
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div *ngIf="submitted && addEditRssFeedForm.controls.rss_feed_link.errors"
+class="form-control-feedback" style="color: red">
+<p *ngIf="submitted && addEditRssFeedForm.controls.rss_feed_link.errors?.required">
+    {{'RSSFEED.VALIDATION.FIELD_REQUIRED' | translate }}
+</p>
+<p *ngIf="submitted && addEditRssFeedForm.controls.rss_feed_link.errors?.pattern">
+    {{'RSSFEED.VALIDATION.INVALID_LINK' | translate }}
+</p>
+</div> -->

@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="120" height="30" viewBox="0 0 120 30">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_564" data-name="Rectangle 564" width="10" height="10" transform="translate(-5811 -8666)" fill="#FFA500" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_570" data-name="Rectangle 570" width="10" height="10" fill="#FFA500" stroke="#707070" stroke-width="1"/>
+    </clipPath>
+  </defs>
+  <g id="Group_1592" data-name="Group 1592" transform="translate(-110 -103)">
+    <path id="Rectangle_561" data-name="Rectangle 561" d="M10,0H90a10,10,0,0,1,10,10V30a0,0,0,0,1,0,0H0a0,0,0,0,1,0,0V10A10,10,0,0,1,10,0Z" transform="translate(120 103)" fill="#FFA500"/>
+    <g id="Mask_Group_16" data-name="Mask Group 16" transform="translate(5921 8789)" clip-path="url(#clip-path)">
+      <path id="Exclusion_10" data-name="Exclusion 10" d="M92.593,20H82.6a10.012,10.012,0,0,0,9.995-10h-10V20H10A10,10,0,0,1,10,0H82.593a10.011,10.011,0,0,1,10,10V20Z" transform="translate(-5893.593 -8676)" fill="#FFA500"/>
+    </g>
+    <g id="Mask_Group_18" data-name="Mask Group 18" transform="translate(220 123)" clip-path="url(#clip-path-2)">
+      <path id="Exclusion_12" data-name="Exclusion 12" d="M82.593,20H10A10,10,0,0,1,10,0H82.593V10h10A10.01,10.01,0,0,1,82.593,20Zm10-10.142A10.038,10.038,0,0,0,82.593,0h10V9.858Z" transform="translate(92.593 10) rotate(180)" fill="#FFA500"/>
+    </g>
+  </g>
+</svg>

@@ -1,0 +1,1590 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import "~bootstrap/scss/bootstrap";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+// font-family: 'Russo One', sans-serif;
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SFProDisplay-Bold.woff2") format("woff2"),
+    url("./assets/fonts/SFProDisplay-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SFProDisplay-Light.woff2") format("woff2"),
+    url("./assets/fonts/SFProDisplay-Light.woff") format("woff");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SFProDisplay-Medium.woff2") format("woff2"),
+    url("./assets/fonts/SFProDisplay-Medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SFProDisplay-Regular.woff2") format("woff2"),
+    url("./assets/fonts/SFProDisplay-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "SF Pro Display";
+  src: url("./assets/fonts/SFProDisplay-Semibold.woff2") format("woff2"),
+    url("./assets/fonts/SFProDisplay-Semibold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+// color
+$color-yellow: #fec901;
+$color-lightyellow: #fef9e4;
+$color-white: #fff;
+$color-black: #000;
+
+@mixin transform($property) {
+  -webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+@mixin border-radius($property) {
+  -webkit-border-radius: $property;
+  -ms-border-radius: $property;
+  border-radius: $property;
+}
+
+@mixin box-shadow($property) {
+  -webkit-box-shadow: $property;
+  -ms-box-shadow: $property;
+  box-shadow: $property;
+}
+
+body {
+  font-family: "Inter", sans-serif !important;
+  padding: 0;
+  margin: 0 auto;
+  font-size: 16px;
+  overflow-x: hidden;
+}
+.f16-500 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 500;
+}
+.f20-500 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 500;
+}
+.f20-700 {
+  font-size: 20px;
+  line-height: 30px;
+  font-weight: 700;
+}
+.f24-500 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 500;
+}
+.f24-700 {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.f32-500 {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 500;
+}
+.f32-700 {
+  font-size: 32px;
+  line-height: 32px;
+  font-weight: 700;
+}
+.f46-700 {
+  font-size: 46px;
+  line-height: 60px;
+  font-weight: 700;
+}
+.f16-russo {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Russo One", sans-serif;
+}
+.f32-russo {
+  font-size: 32px;
+  line-height: 50px;
+  font-family: "Russo One", sans-serif;
+}
+.f40-russo {
+  font-size: 40px;
+  line-height: 60px;
+  font-family: "Russo One", sans-serif;
+}
+.f46-russo {
+  font-size: 46px;
+  line-height: 60px;
+  font-family: "Russo One", sans-serif;
+}
+.f14-display-200 {
+  font-family: "SF Pro Display";
+  font-size: 14px;
+  line-height: 19px;
+  font-weight: 200;
+}
+.f16-display-200 {
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 200;
+}
+.f32-display-bold {
+  font-family: "SF Pro Display";
+  font-size: 32px;
+  line-height: 42px;
+  font-weight: bold;
+}
+p,
+.f16-400 {
+  font-family: "SF Pro Display";
+  font-size: 16px;
+  line-height: 24px;
+}
+.fridge_yellowoutlinebtn {
+  display: inline-block;
+  @include border-radius(10px);
+  background: transparent;
+  border: 2px solid $color-yellow;
+  color: $color-white;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: $color-yellow;
+    text-decoration: none;
+    color: $color-black;
+  }
+}
+.fridge_yellowBtn {
+  display: inline-block;
+  @include border-radius(10px);
+  background: $color-yellow;
+  border: 2px solid $color-yellow;
+  color: $color-black;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px 25px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: $color-lightyellow;
+    text-decoration: none;
+    color: $color-black;
+  }
+}
+.fridgeBlackBtn {
+  display: inline-block;
+  @include border-radius(10px);
+  background: $color-black;
+  border: 2px solid $color-black;
+  color: $color-yellow;
+  font-size: 18px;
+  line-height: 20px;
+  padding: 10px 30px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    background: $color-yellow;
+    text-decoration: none;
+    color: $color-black;
+    border: 2px solid $color-yellow;
+  }
+}
+.fridge_yellowBtn2 {
+  display: inline-block;
+  @include border-radius(10px);
+  background: url("./assets/images/yellow-btn.svg") no-repeat center bottom /
+    100%;
+  border: none;
+  color: $color-black;
+  font-size: 18px;
+  line-height: 23px;
+  padding: 10px 30px;
+  font-weight: 600;
+  min-width: 150px;
+  transition: all 0.3s ease-in-out;
+  &:hover {
+    text-decoration: none;
+    color: $color-black;
+  }
+}
+
+.fridge_banner {
+  position: relative;
+  background: $color-black;
+
+  // overflow-y: hidden;
+  &:after {
+    content: "";
+    width: 100%;
+    height: 90px;
+    display: block;
+    background: url("./assets/images/mask.svg") no-repeat scroll 0 0 / 100%;
+    position: absolute;
+    left: 0;
+    bottom: -40px;
+    @include transform(rotateX(180deg));
+    z-index: -1;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media screen and (min-width: 1680px) {
+  .container-fluid {
+    padding: 0 8%;
+  }
+}
+@media screen and (min-width: 1367px) {
+  .container-fluid {
+    padding: 0 5%;
+  }
+}
+.fridge_bnnerContent {
+  width: 100%;
+  max-width: 900px;
+  padding: 100px 0 350px;
+  z-index: 3;
+  position: relative;
+}
+.op-6 {
+  opacity: 0.6;
+}
+.fridge_homehdr {
+  padding: 40px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.fridge_boxAnimantion {
+  position: relative;
+  display: table;
+  margin: 0 auto;
+  .fridge_boxAnimantionInner {
+    position: absolute;
+    top: 50px;
+    left: calc(50% - 207px);
+    z-index: 1;
+    .fridge-door {
+      position: absolute;
+      bottom: -4px;
+      right: -31px;
+      height: 456px;
+    }
+  }
+}
+.fridge_about_box {
+  @include border-radius(25px);
+  // border: 2px solid $color-black;
+  padding: 80px 30px 30px;
+  background: #fef9e4;
+}
+.fridge_about {
+  padding: 250px 0 150px;
+}
+.text-yellow {
+  color: $color-yellow;
+}
+.fridge_platform {
+  background: url("./assets/images/bg1.svg") no-repeat scroll center center /
+    cover;
+  position: relative;
+  padding: 100px 0;
+}
+.fridge_TokenValueUtility {
+  padding: 100px 0;
+  .fridge_box2 {
+    @include border-radius(25px);
+    // border: 2px solid $color-black;
+    background: #fef9e4;
+    padding: 30px;
+    height: 100%;
+    transition: all 0.3s ease-in-out;
+    @media screen and(max-width:767px) {
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    &:hover {
+      @include transform(translate(0, -5px));
+      background: $color-black !important;
+      color: $color-white !important;
+      a {
+        color: $color-white !important;
+      }
+    }
+    p {
+      margin: 0;
+    }
+    .fridge_number {
+      color: $color-white;
+      background: url("./assets/images/fridge.png") no-repeat scroll 0 0 /96px;
+      width: 96px;
+      height: 121px;
+      margin: -68px auto 30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      font-weight: 700;
+      padding-top: 15px;
+    }
+  }
+}
+.fridge_fees {
+  // background: $color-lightyellow;
+  padding: 100px 0;
+  position: relative;
+  // &:after {
+  //   content: "";
+  //   width: 100%;
+  //   height: 90px;
+  //   display: block;
+  //   background: url("./assets/images/mask2.svg") no-repeat scroll 0 0 / 100%;
+  //   position: absolute;
+  //   left: 0;
+  //   bottom: -40px;
+  //   @include transform(rotateX(180deg));
+  //   z-index: -1;
+  // }
+  // &:before {
+  //   content: "";
+  //   width: 100%;
+  //   height: 90px;
+  //   display: block;
+  //   background: url("./assets/images/mask2.svg") no-repeat scroll 0 0 / 100%;
+  //   position: absolute;
+  //   left: 0;
+  //   top: -40px;
+  //   z-index: -1;
+  // }
+}
+.fridge_leftborderBox {
+  position: relative;
+  padding-left: 20px;
+  &:after {
+    content: "";
+    width: 6px;
+    height: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: $color-yellow;
+    @include border-radius(3px);
+  }
+}
+.bottom-margin-minus {
+  display: table;
+  margin: 0 auto -50px;
+}
+footer {
+  background: $color-black;
+  position: relative;
+  padding: 20px 0 20px;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 90px;
+    display: block;
+    background: url("./assets/images/mask.svg") no-repeat scroll 0 0 / 100%;
+    position: absolute;
+    left: 0;
+    top: -40px;
+    z-index: -1;
+  }
+}
+.fridge_social {
+  justify-content: flex-end;
+  li {
+    margin-left: 10px;
+    a {
+      display: block;
+      @include border-radius(50%);
+      border: 2px solid rgba($color-white, 0.1);
+      img {
+        opacity: 0.3;
+      }
+      &:hover {
+        border: 2px solid rgba($color-white, 1);
+        img {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+.fridge-copy {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba($color-white, 0.4);
+}
+.fridge-footer-copy-link {
+  font-size: 14px;
+  line-height: 20px;
+  color: rgba($color-white, 0.4);
+  margin-left: 20px;
+  &:hover {
+    color: $color-white;
+    text-decoration: none;
+  }
+}
+.min-height-100vh {
+  min-height: 100vh;
+}
+.bg-dark {
+  background: $color-black !important;
+}
+.navbar {
+  border-bottom: 1px solid rgba($color-white, 0.1);
+  padding: 7px 0;
+}
+.navbar-dark .navbar-nav .nav-link {
+  color: $color-white;
+  font-size: 18px;
+  margin: 0 20px;
+  position: relative;
+  font-family: "SF Pro Display";
+  &:hover,
+  &.active {
+    color: $color-yellow;
+  }
+  &.active {
+    &:after {
+      content: "";
+      width: calc(100% - 1rem);
+      height: 3px;
+      @include border-radius(2px);
+      display: block;
+      position: absolute;
+      bottom: -12px;
+      left: 0.5rem;
+      background: $color-yellow;
+    }
+  }
+}
+@media screen and(max-width:991px) {
+  .navbar-expand-lg > .container-fluid {
+    padding: 0 15px;
+  }
+  div#basic-navbar-nav {
+    position: absolute;
+    top: 60px;
+    right: 15px;
+    background: #333333;
+    padding: 10px;
+  }
+  .navbar-dark .navbar-nav .nav-link.active:after {
+    width: 100%;
+    bottom: 0;
+    left: 0;
+  }
+}
+.bg {
+  background-color: $color-black;
+  background-image: url("./assets/images/bg.png");
+  padding: 100px 0;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0 100px;
+  background-attachment: fixed;
+}
+.box3 {
+  border: 2px solid #ffffff;
+  @include border-radius(10px);
+  padding: 25px;
+  height: 100%;
+}
+.box4 {
+  background: #333333;
+  display: block;
+  width: 100%;
+  height: 100%;
+  @include border-radius(10px);
+  border: 2px solid transparent;
+  transition: all 0.3s ease-in-out;
+  &.fridge_ongoing {
+    .fridge_status {
+      background: url("./assets/images/ongoing.svg") no-repeat scroll center
+        bottom / 120px;
+      border-bottom: 2px solid #2575fc;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      line-height: 33px;
+      margin: 20px 0;
+      text-transform: uppercase;
+      -webkit-text-transform: uppercase;
+      -moz-text-transform: uppercase;
+    }
+  }
+  &.fridge_ended {
+    .fridge_status {
+      background: url("./assets/images/ended.svg") no-repeat scroll center
+        bottom / 120px;
+      border-bottom: 2px solid #FF0000;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      line-height: 30px;
+      margin: 20px 0;
+      text-transform: uppercase;
+      -webkit-text-transform: uppercase;
+      -moz-text-transform: uppercase;
+    }
+  }
+  &.fridge_upcoming {
+    .fridge_status {
+      background: url("./assets/images/upcoming.svg") no-repeat scroll center
+        bottom / 120px;
+      border-bottom: 2px solid #FFA500;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      line-height: 33px;
+      margin: 20px 0;
+      text-transform: uppercase;
+      -webkit-text-transform: uppercase;
+      -moz-text-transform: uppercase;
+    }
+  }
+  &.fridge_early_birds {
+    .fridge_status {
+      background: url("./assets/images/early_birds.svg") no-repeat scroll center
+        bottom / 120px;
+      border-bottom: 2px solid #fec901;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      line-height: 33px;
+      margin: 20px 0;
+      text-transform: uppercase;
+      -webkit-text-transform: uppercase;
+      -moz-text-transform: uppercase;
+    }
+  }
+  &.fridge_success {
+    .fridge_status {
+      background: url("./assets/images/success.svg") no-repeat scroll center
+        bottom / 120px;
+      border-bottom: 2px solid #008000;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      line-height: 33px;
+      margin: 20px 0;
+      text-transform: uppercase;
+      -webkit-text-transform: uppercase;
+      -moz-text-transform: uppercase;
+    }
+  }
+
+  &.fridge_failed {
+    .fridge_status {
+      background: url("./assets/images/failed.svg") no-repeat scroll center
+        bottom / 120px;
+      border-bottom: 2px solid #FF0000;
+      font-size: 14px;
+      color: #ffffff;
+      text-align: center;
+      font-weight: 600;
+      line-height: 33px;
+      margin: 20px 0;
+      text-transform: uppercase;
+      -webkit-text-transform: uppercase;
+      -moz-text-transform: uppercase;
+    }
+  }
+
+  &:hover {
+    text-decoration: none;
+    border-color: $color-yellow;
+  }
+}
+.text-blue {
+  color: #2575fc;
+}
+.box6 {
+  @include border-radius(10px);
+  background: $color-white url("./assets/images/mask3.svg") no-repeat center top /
+    100%;
+  border: 2px solid $color-white;
+  position: sticky;
+  top: 80px;
+  img {
+    width: 50%;
+    display: table;
+    margin: 40px auto 0;
+  }
+}
+.fridge_social2 {
+  a {
+    margin-left: 20px;
+    background: $color-black;
+    @include border-radius(50%);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      opacity: 0.3;
+      transition: all 0.3s ease-in-out;
+    }
+    &:hover {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+}
+.select-currency {
+  max-width: 250px;
+  button.dropdown-item {
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 500;
+    img {
+      margin-right: 10px;
+    }
+  }
+}
+.btn-outline-yellow {
+  background: transparent;
+  border: 2px solid $color-yellow;
+  background: transparent url("./assets/images/arrow_down.svg") no-repeat scroll
+    100% 50% / 24px;
+  @include border-radius(8px);
+  padding: 3px 30px 3px 5px;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "SF Pro Display";
+  color: $color-white;
+  &::after {
+    content: none;
+  }
+  img {
+    margin-right: 10px;
+  }
+  &:hover {
+    color: $color-white;
+  }
+}
+.fridge-form-grup {
+  @include border-radius(13px);
+  border: 2px solid #e8f1ff;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  input {
+    font-size: 22px;
+    line-height: 30px;
+    color: $color-white;
+    font-weight: 500;
+    border: none;
+    background: transparent;
+    width: calc(100% - 120px);
+    @media screen and (max-width: 991px) {
+      font-size: 20px;
+      line-height: 30px;
+    }
+    &:focus {
+      outline: none;
+      border: none;
+    }
+  }
+}
+
+.fridge-importExportBtn {
+  background: transparent;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  @include border-radius(50%);
+  padding: 0;
+  transition: all 0.3s ease-in-out;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+.fridge_buyform {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 50px;
+}
+.fridge_step_header {
+  button {
+    background: transparent;
+    border: none;
+    font-size: 18px;
+    line-height: 34px;
+    color: $color-white;
+    font-family: "SF Pro Display";
+    font-weight: 500;
+    position: relative;
+    padding: 15px 0;
+    opacity: 0.2;
+    span {
+      background: $color-yellow;
+      @include border-radius(50%);
+      height: 34px;
+      width: 34px;
+      margin-right: 10px;
+      font-size: 16px;
+      display: inline-block;
+      color: $color-black;
+    }
+    &.active {
+      opacity: 1;
+      &:after {
+        content: "";
+        width: 100%;
+        height: 3px;
+        display: block;
+        background: $color-yellow;
+        @include border-radius(3px);
+        position: absolute;
+        left: 0;
+        bottom: -3px;
+      }
+    }
+  }
+}
+.form-control {
+  @include border-radius(13px);
+  border: 1px solid rgba($color-white, 0.1);
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  font-size: 22px;
+  line-height: 26px;
+  font-weight: 500;
+  color: $color-white;
+  width: 100%;
+  height: 45px;
+  background: transparent;
+  &::-webkit-input-placeholder {
+    color: $color-white;
+  }
+  &::-moz-placeholder {
+    color: $color-white;
+  }
+  &:-ms-input-placeholder {
+    color: $color-white;
+  }
+  &:-moz-placeholder {
+    color: $color-white;
+  }
+  &:focus {
+    outline: none !important;
+    @include box-shadow(none!important);
+    border: 1px solid $color-white;
+    background: transparent;
+    color: $color-white;
+  }
+}
+.hover-none {
+  &:hover {
+    border-color: transparent;
+  }
+}
+.fridge_next {
+  background: url("./assets/images/next.svg") no-repeat scroll right center /
+    100%;
+  border: none;
+  color: $color-black;
+  font-size: 18px;
+  line-height: 30px;
+  padding: 10px 36px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  width: 135px;
+  height: 50px;
+  text-align: center;
+}
+.fridge_prev {
+  background: url("./assets/images/prev.svg") no-repeat scroll right center /
+    100%;
+  border: none;
+  color: $color-white;
+  font-size: 18px;
+  line-height: 30px;
+  padding: 10px 36px;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  width: 135px;
+  height: 50px;
+  text-align: center;
+}
+.form-group {
+  margin-bottom: 1.5rem;
+}
+input[type="file"] {
+  padding: 0;
+  font-size: 14px;
+  line-height: 39px;
+}
+.fridge_uploadBtn {
+  @include border-radius(8px);
+  border: 1px solid $color-yellow;
+  font-size: 14px;
+  line-height: 36px;
+  font-weight: 500;
+  letter-spacing: 0.28px;
+  color: #fec901;
+  text-transform: uppercase;
+  width: 96px;
+  height: 36px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+
+  input {
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+  }
+}
+.fridge_filename {
+  color: #2575fc;
+}
+img.coins {
+  width: 100%;
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+}
+img.coins2 {
+  width: 100%;
+}
+.fridge_coinsbox {
+  position: absolute;
+  bottom: 30px;
+  left: 0;
+  width: 100%;
+  padding: 0 7%;
+  overflow: hidden;
+}
+.fridge_Assuranceinvestors {
+  background: url("./assets/images/bg2.svg") no-repeat scroll center center /
+    cover;
+  position: relative;
+  padding: 100px 0;
+}
+@media screen and (max-width: 1440px) {
+  .f24-500 {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .f46-russo {
+    font-size: 36px;
+    line-height: 46px;
+  }
+  .f40-russo {
+    font-size: 30px;
+    line-height: 40px;
+  }
+  .f32-russo {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}
+@media screen and (max-width: 1199px) {
+  .form-control {
+    font-size: 12px;
+  }
+  .bg {
+    padding: 80px 0 30px;
+  }
+  .f32-500 {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  .f32-700 {
+    font-size: 20px;
+    line-height: 22px;
+  }
+  img.token {
+    width: 50px;
+  }
+  p,
+  .f16-400 {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .f16-display-200 {
+    font-size: 12px;
+    line-height: 20px;
+  }
+  .f14-display-200 {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .f20-500 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  .f24-500 {
+    font-size: 16px;
+    line-height: 26px;
+  }
+  .navbar-dark .navbar-nav .nav-link {
+    font-size: 14px;
+  }
+  .navbar-dark .navbar-brand img {
+    height: 38px;
+  }
+  .fridge_yellowoutlinebtn,
+  .fridgeBlackBtn {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 12px;
+  }
+  .box3 img {
+    width: 40px;
+  }
+  .f24-700 {
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 700;
+  }
+  .box6 img {
+    margin: 20px auto 0;
+  }
+  .fridge_social li a img {
+    width: 35px;
+  }
+  .f32-display-bold {
+    font-size: 20px;
+    line-height: 30px;
+  }
+  .f20-700 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .fridge_platform,
+  .fridge_fees {
+    padding: 30px 0;
+  }
+
+  .fridge_boxAnimantion .fridge_boxAnimantionInner {
+    left: calc(50% - 90px);
+    width: 180px;
+    height: 258px;
+    .fridge-door {
+      bottom: -4px;
+      right: -15px;
+      width: 116%;
+      height: 200px;
+    }
+    img.fridge-open {
+      width: 100%;
+    }
+  }
+  .fridge_bnnerContent {
+    padding: 30px 0 200px;
+  }
+  .fridge_about {
+    padding: 60px 0 30px;
+  }
+  .fridge_TokenValueUtility {
+    padding: 30px 0 30px;
+  }
+  .fridge_homehdr {
+    padding: 20px 0;
+  }
+}
+@media screen and (max-width: 991px) {
+  .fridge_banner:after,
+  .fridge_platform:after,
+  .fridge_fees:after {
+    bottom: -20px;
+  }
+  .fridge_platform:before,
+  .fridge_fees:before,
+  footer:before {
+    top: -20px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .fridge_step_header {
+    flex-direction: column;
+  }
+  .fridge_buyform {
+    flex-direction: column;
+  }
+  .fridge-importExportBtn {
+    @include transform(rotate(90deg));
+  }
+
+  .fridge_TokenValueUtility .fridge_box2 {
+    height: auto;
+  }
+  .mobile-height-auto {
+    margin: 0;
+  }
+  footer .d-flex {
+    justify-content: center;
+    padding-bottom: 10px;
+  }
+}
+@media screen and (max-width: 419px) {
+  .fridge_banner:after,
+  .fridge_platform:after,
+  .fridge_fees:after {
+    bottom: -10px;
+  }
+  .fridge_platform:before,
+  .fridge_fees:before,
+  footer:before {
+    top: -10px;
+  }
+}
+
+.fridge-err span {
+  font-size: 14px;
+  color: #852121;
+}
+img.token {
+  width: 80px;
+  height: 80px;
+  @include border-radius(50%);
+}
+
+button#dropdownBasic1 {
+  width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+  img {
+    width: 24px;
+    height: 24px;
+    @include border-radius(50%);
+  }
+}
+
+.circle-animation {
+  height: 358px;
+  width: 358px;
+  z-index: 1;
+  overflow: hidden;
+  position: relative;
+  left: 50%;
+  top: 50%;
+  @include transform(translate(-50%, -50%));
+}
+
+.circle-animation + * {
+  position: relative;
+  z-index: 2;
+  max-width: 70%;
+  margin: 0 auto;
+  top: 0;
+}
+
+.circle-animation:before,
+.circle-animation:after {
+  position: absolute;
+  content: "";
+  border: 4px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+.circle-animation:before {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-top-color: #f1b90a;
+  border-right-color: #f1b90a;
+  animation: rotatecw 15s linear infinite 0s;
+}
+
+.circle-animation:after {
+  top: 40px;
+  left: 40px;
+  bottom: 40px;
+  right: 40px;
+  border-top-color: #f1b90a;
+  border-bottom-color: #f1b90a;
+  animation: rotateacw 10s linear infinite 0s;
+}
+.circle-animation-box {
+  position: relative;
+  img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}
+@keyframes rotatecw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotatecw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@-moz-keyframes rotatecw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateacw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@-webkit-keyframes rotateacw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+@-moz-keyframes rotateacw {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
+  }
+}
+.waves {
+  position: absolute;
+  top: 50%;
+  background: $color-black;
+  left: 50%;
+  width: 100px;
+  height: 100px;
+  @include transform(translate(-50%, -50%));
+  border-radius: 50%;
+  z-index: 1;
+  -webkit-backface-visibility: hidden;
+  @keyframes wave-animate {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+      transform-origin: center;
+    }
+    100% {
+      transform: scale(8);
+      opacity: 0;
+      transform-origin: center;
+    }
+  }
+  @-webkit-keyframes wave-animate {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+      transform-origin: center;
+    }
+    100% {
+      transform: scale(8);
+      opacity: 0;
+      transform-origin: center;
+    }
+  }
+  @-moz-keyframes wave-animate {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+      transform-origin: center;
+    }
+    100% {
+      transform: scale(8);
+      opacity: 0;
+      transform-origin: center;
+    }
+  }
+  &::before {
+    position: absolute;
+    background: $color-yellow;
+    @include transform(translate(-50%, -50%));
+    width: 100px;
+    height: 100px;
+    content: "";
+    display: block;
+    border-radius: 50%;
+    -webkit-backface-visibility: hidden;
+    animation: wave-animate 3s infinite ease-out;
+  }
+  &::after {
+    position: absolute;
+    background: $color-yellow;
+    @include transform(translate(-50%, -50%));
+    width: 100px;
+    height: 100px;
+    content: "";
+    display: block;
+    border-radius: 50%;
+    -webkit-backface-visibility: hidden;
+    animation: wave-animate 3s 1.5s infinite ease-out;
+  }
+}
+.fridge-open,
+.fridge-door {
+  z-index: 2;
+  position: relative;
+}
+.fridge_AssuranceinvestorsList {
+  li {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #7070701a;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    &:last-child {
+      border: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    &:nth-child(even) {
+      flex-direction: row-reverse;
+      .img {
+        margin-right: auto;
+        margin-left: 40px;
+        &:after {
+          border-left: 0 solid $color-white;
+          border-right: 10px solid $color-white;
+          right: auto;
+          left: -10px;
+        }
+      }
+    }
+    .w-100 {
+      width: calc(100% - 260px) !important;
+    }
+    .img {
+      position: relative;
+      height: 220px;
+      width: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      margin-right: 40px;
+      @include box-shadow(0px 0px 32px #fec90126);
+      @include border-radius(25px);
+      &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 10px solid transparent;
+        border-left: 10px solid $color-white;
+        border-bottom: 10px solid transparent;
+        position: absolute;
+        top: calc(50% - 5px);
+        right: -10px;
+      }
+    }
+  }
+}
+.fridge_roadmap {
+  padding: 100px 0;
+}
+
+.timeline {
+  list-style: none;
+  padding: 20px 0 20px;
+  position: relative;
+  &::before {
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 3px;
+    background: #fef9e4;
+    left: 50%;
+    margin-left: -1.5px;
+  }
+  li {
+    padding-right: 90px;
+    position: relative;
+    display: table;
+    width: 100%;
+
+    &:nth-child(even) {
+      margin: -100px 0;
+    }
+    &:nth-child(odd) {
+      padding-left: 90px;
+      padding-right: 0;
+      .timeline-panel {
+        float: right;
+        &:hover {
+          background: $color-black;
+          color: $color-white;
+          &:before {
+            border-right: 15px solid $color-black;
+            border-left: 0 solid #ccc;
+          }
+        }
+        &:before {
+          left: -15px;
+          right: auto;
+          border-right: 15px solid $color-yellow;
+          border-left: 0 solid #ccc;
+        }
+      }
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+    .timeline-panel {
+      width: 50%;
+      float: left;
+      @include border-radius(25px);
+      background: $color-yellow;
+      padding: 30px;
+      position: relative;
+      transition: all 0.3s ease-in-out;
+      &:hover {
+        background: $color-black;
+        color: $color-white;
+        &:before {
+          border-left: 15px solid $color-black;
+        }
+      }
+      &:before {
+        position: absolute;
+        top: calc(50% - 15px);
+        right: -15px;
+        display: inline-block;
+        border-top: 15px solid transparent;
+        border-left: 15px solid $color-yellow;
+        border-bottom: 15px solid transparent;
+        transition: all 0.3s ease-in-out;
+        content: " ";
+      }
+    }
+    .timeline-badge {
+      color: #fff;
+      width: 31px;
+      height: 31px;
+      position: absolute;
+      top: calc(50% - 16px);
+      left: calc(50% - 16px);
+      @include border-radius(50%);
+      background: $color-white;
+      border: 5px solid $color-yellow;
+    }
+  }
+}
+
+@media screen and (max-width: 1199px) {
+  .circle-animation {
+    height: 300px;
+    width: 300px;
+  }
+  @keyframes wave-animate {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+      transform-origin: center;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+      transform-origin: center;
+    }
+  }
+  @-webkit-keyframes wave-animate {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+      transform-origin: center;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+      transform-origin: center;
+    }
+  }
+  @-moz-keyframes wave-animate {
+    0% {
+      transform: scale(0);
+      opacity: 1;
+      transform-origin: center;
+    }
+    100% {
+      transform: scale(4);
+      opacity: 0;
+      transform-origin: center;
+    }
+  }
+}
+@media screen and (max-width: 991px) {
+  .circle-animation-box img {
+    width: 220px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .fridge_AssuranceinvestorsList li {
+    flex-direction: column;
+    text-align: center;
+    .w-100 {
+      width: 100% !important;
+      padding-top: 30px;
+    }
+    &:nth-child(even) {
+      flex-direction: column;
+      .img {
+        margin: 0 auto;
+        @include border-radius(15px);
+      }
+    }
+    .img {
+      height: 100px;
+      width: 100px;
+      margin: 0 auto;
+      @include border-radius(15px);
+      &:after {
+        content: none;
+      }
+
+      img {
+        height: 50%;
+      }
+    }
+  }
+  .timeline {
+    &::before {
+      left: 10px;
+      margin: 0;
+    }
+    li,
+    li:nth-child(odd) {
+      margin-bottom: 30px;
+      padding-right: 0;
+      padding-left: 50px;
+      &:nth-child(even) {
+        margin: 0 0 30px;
+      }
+      .timeline-panel {
+        width: 100%;
+        float: right;
+        &:before {
+          left: -15px;
+          right: auto;
+          border-right: 15px solid #fec901;
+          border-left: 0 solid #ccc;
+        }
+      }
+      .timeline-badge {
+        left: -5px;
+      }
+    }
+  }
+}
+.p_rltv {
+  position: relative;
+  .form-control {
+    text-align: center !important;
+    padding-left: 80px;
+    padding-right: 80px;
+  }
+}
+.btnactn {
+  font-size: 24px;
+  line-height: 24px;
+  padding: 3px 25px;
+  border-radius: 8px;
+  background-color: transparent !important;
+  color: #fec901 !important;
+  border: 1px solid #fec901 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+.btnactn.btnmns {
+  position: absolute;
+  left: 8px;
+  top: 7px;
+}
+.btnactn.btnpls {
+  position: absolute;
+  right: 8px;
+  top: 7px;
+}
+.btm_d {
+  h6 {margin-top: 4px;margin-bottom: 0;}
+  @media screen and (max-width: 575px) {
+    .text-right {text-align: left !important;}
+    .text-center {text-align: left !important;}
+    h6 {margin-bottom: 25px;margin-top: 0;}
+  }
+}
+.qstn_img {width: 16px;margin-right: 4px;}
+
+.y-bold{
+  font-weight: 600;}

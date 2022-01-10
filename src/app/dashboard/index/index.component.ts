@@ -3,7 +3,6 @@ import * as async from 'async';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { ToastrService } from 'ngx-toastr';
-import { resolve } from 'node:path';
 import { ApiService } from 'src/app/api.service';
 import { environment } from 'src/environments/environment';
 
